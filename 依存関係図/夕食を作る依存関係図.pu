@@ -1,0 +1,53 @@
+@startuml 夕食を作る依存関係図
+class 夕食 {
+  -材料: List<材料>
+  -料理: List<料理>
+  +夕食を準備する()
+}
+
+class 材料 {
+  -名前: String
+  -量: String
+  +取得する()
+}
+
+class 料理 {
+  -名前: String
+  -レシピ: String
+  +作る()
+}
+
+class 主菜 extends 料理 {
+}
+
+class 副菜 extends 料理 {
+}
+
+class スープ extends 料理 {
+}
+
+class デザート extends 料理 {
+}
+
+class スーパー {
+  -名前: String
+  -住所: String
+  +買い物する()
+}
+
+class テーブルセッティング {
+  -アイテム: List<String>
+  +準備する()
+}
+
+夕食 o-- 材料
+夕食 o-- 主菜
+夕食 o-- 副菜
+夕食 o-- スープ
+夕食 o-- デザート
+夕食 o-- 料理
+夕食 o-- テーブルセッティング
+スーパー o-- 材料
+料理 o-- 材料
+
+@enduml
